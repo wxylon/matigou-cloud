@@ -1,0 +1,11 @@
+tomcat/apache-tomcat-8.5.55.tar.gz
+tomcat/jdk-8u251-linux-x64.tar.gz
+*.iml
+target
+.idea
+*.log
+*.temp
+.classpath
+.project
+.settings/
+.DS_Store

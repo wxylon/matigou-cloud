@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: matigou-cloud-web
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.202:8848
+    sentinel:
+      transport:
+        dashboard: 192.168.1.202:8080
+  zipkin:
+    base-url: http://192.168.1.202:9411
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+server:
+  port: 8081
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false
+
+
+

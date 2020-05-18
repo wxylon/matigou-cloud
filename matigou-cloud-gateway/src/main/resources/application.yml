@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: matigou-cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.202:8848
+    sentinel:
+      transport:
+        dashboard: 192.168.1.202:8080
+    gateway:
+      routes:
+        - id: matigou-cloud-gateway
+          uri: lb://matigou-cloud-web
+          predicates:
+            - Path=/**
+          filters:
+            - StripPrefix=1
+  zipkin:
+    base-url: http://192.168.1.202:9411
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+server:
+  port: 9191
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  security:
+    enabled: false
