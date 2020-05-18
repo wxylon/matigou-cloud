@@ -1,6 +1,4 @@
-FROM openjdk:8
+FROM tomcat8:latest
 MAINTAINER matigou <admin@matigou.com>
-VOLUME /tmp
-ADD matigou-cloud-gateway.jar app.jar
-RUN bash -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ADD matigou-cloud-gateway.war /usr/local/apache-tomcat-8.5.55/webapps/ROOT.war
+ENTRYPOINT /etc/init.d/tomcat start && tail -f /usr/local/apache-tomcat-8.5.55/logs/catalina.out
