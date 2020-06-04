@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.matigou</groupId>
-            <artifactId>matitou-cloud-dao</artifactId>
+            <artifactId>matigou-cloud-dao</artifactId>
             <version>${project.version}</version>
         </dependency>
 

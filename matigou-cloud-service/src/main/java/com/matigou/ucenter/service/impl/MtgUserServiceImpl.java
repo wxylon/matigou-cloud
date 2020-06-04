@@ -4,6 +4,7 @@ import com.matigou.ucenter.domain.MtgUser;
 import com.matigou.ucenter.dao.MtgUserDao;
 import com.matigou.ucenter.service.MtgUserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -49,6 +50,7 @@ public class MtgUserServiceImpl implements MtgUserService {
      * @return 实例对象
      */
     @Override
+    @Transactional
     public MtgUser insert(MtgUser mtgUser) {
         this.mtgUserDao.insert(mtgUser);
         return mtgUser;

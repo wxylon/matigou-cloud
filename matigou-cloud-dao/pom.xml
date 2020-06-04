@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>matitou-cloud-dao</artifactId>
+    <artifactId>matigou-cloud-dao</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

@@ -5,15 +5,31 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.202/matigou_cloud
-    username: 'root'
-    password: '000000'
-    hikari:
-      idle-timeout: 60000
-      maximum-pool-size: 20
-      minimum-idle: 10
-
+    druid:
+      url: jdbc:mysql://192.168.1.202/matigou_cloud
+      username: 'root'
+      password: '000000'
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialSize: 10
+      maxActive: 20
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      validationQuery: SELECT 1
+      validation-query-timeout: 500
+      filters: stat
+      stat-view-servlet:
+        enabled: false
+        url-pattern: /druid/*
+        reset-enable: true
+        login-username: admin
+        login-password: admin
 
 mybatis-plus:
   global-config:
