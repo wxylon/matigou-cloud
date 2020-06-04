@@ -1,7 +1,5 @@
 package com.matigou.ucenter.service.impl;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.matigou.ucenter.controller.UserController;
 import com.matigou.ucenter.service.UserService;
 import com.matigou.web.vo.UserVo;
 import org.slf4j.Logger;

@@ -1,6 +1,9 @@
-package com.matigou.web;
+package com.matigou.core;
 
 import com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration;
+import org.apache.logging.slf4j.SLF4JLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,6 +19,8 @@ import java.util.Set;
 @Component
 public class NacosConfig implements ApplicationRunner {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(NacosConfig.class);
+
     @Resource
     private NacosAutoServiceRegistration registration;
 
@@ -24,8 +29,8 @@ public class NacosConfig implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        Integer tomcatPort = port;
         if (registration != null && port != null) {
-            Integer tomcatPort = port;
             try {
                 tomcatPort = new Integer(getTomcatPort());
             } catch (Exception e) {
@@ -35,6 +40,7 @@ public class NacosConfig implements ApplicationRunner {
             registration.setPort(tomcatPort);
             registration.start();
         }
+        LOGGER.info("server.port: {}", tomcatPort);
     }
 
     /**
