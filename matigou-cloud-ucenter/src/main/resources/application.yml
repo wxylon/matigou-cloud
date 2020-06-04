@@ -3,6 +3,32 @@ server:
   servlet:
     context-path: /
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.202/matigou_cloud
+    username: 'root'
+    password: '000000'
+    hikari:
+      idle-timeout: 60000
+      maximum-pool-size: 20
+      minimum-idle: 10
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: assign_id
+      refresh-mapper: true
+  datacenter-id: 1
+  worker-id: 1
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.matigou.ucenter.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 feign:
   httpclient:
     enabled: false

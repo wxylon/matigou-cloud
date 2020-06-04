@@ -1,5 +1,7 @@
 package com.matigou.ucenter.controller;
 
+import com.matigou.ucenter.domain.MtgUser;
+import com.matigou.ucenter.service.MtgUserService;
 import com.matigou.ucenter.service.UserService;
 import com.matigou.web.vo.UserVo;
 import org.slf4j.Logger;
@@ -18,9 +20,23 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    MtgUserService mtgUserService;
+
     @RequestMapping("/listUsers")
     public List<UserVo> listUsers(){
         LOGGER.info("UserController-listUsers-start");
+
+        List<MtgUser> mtgUsers =  mtgUserService.queryAllByLimit(0, 10);
+
+        LOGGER.info(mtgUsers.toString());
+
         return userService.findUsers();
+    }
+
+    @RequestMapping("/insert")
+    public void inserUsers(MtgUser mtgUser){
+        LOGGER.info("UserController-inserUsers-start");
+        mtgUserService.insert(mtgUser);
     }
 }

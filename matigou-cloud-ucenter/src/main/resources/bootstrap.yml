@@ -19,6 +19,13 @@ spring:
       percentage: 1.0
       probability: 1.0
 
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+
 
 
 logging:
