@@ -6,10 +6,10 @@ server:
 spring:
   datasource:
     druid:
-      url: jdbc:mysql://192.168.1.202/matigou_cloud
+      url: jdbc:mysql://192.168.1.202/matigou_cloud?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&autoReconnect=true
       username: 'root'
       password: '000000'
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
       initialSize: 10
       maxActive: 20
       maxWait: 60000
@@ -61,3 +61,7 @@ management:
         include: '*'
   security:
     enabled: false
+
+
+swagger:
+  enabled: true
