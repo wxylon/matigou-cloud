@@ -27,9 +27,6 @@
     </properties>
 
     <modules>
-        <module>matigou-cloud-domain</module>
-        <module>matigou-cloud-dao</module>
-        <module>matigou-cloud-service</module>
         <module>matigou-cloud-core</module>
         <module>matigou-cloud-ucenter-api</module>
         <module>matigou-cloud-ucenter</module>
