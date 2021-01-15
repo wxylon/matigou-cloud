@@ -1,6 +1,6 @@
 package com.matigou.config;
 
-import com.matigou.controller.GreetingHandler;
+import com.matigou.handler.GreetingHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

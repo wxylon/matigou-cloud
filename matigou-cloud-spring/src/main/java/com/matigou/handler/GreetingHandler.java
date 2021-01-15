@@ -1,4 +1,4 @@
-package com.matigou.controller;
+package com.matigou.handler;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
